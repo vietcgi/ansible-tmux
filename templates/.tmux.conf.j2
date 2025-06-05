@@ -173,11 +173,27 @@ bind-key -n 'M-l' if-shell "$is_vim" 'send-keys M-l'  'resize-pane -R 3'
 set-window-option -g monitor-activity on
 set-window-option -g window-status-activity none
 
-set -g status-style bg=colour237,fg=colour187,dim
-set -g window-status-style bg=colour237,fg=colour187,dim
-set -g window-status-current-style bg='#abaa98',fg='#000000',dim
-set -g window-status-activity-style bg='#f9f5c2',fg='#000000'
-set -g pane-active-border-style bg='#101010',fg='#87d700'
-set -g pane-border-style bg='#101010',fg='#505050'
 set -g mode-style bg='#000000',fg=colour187
 set -g message-style bg='#000000',fg=colour187
+
+# Background Color (dark theme)
+set -g status-style bg=#1d1f21,fg=#d3d3d3
+
+# Active Window (current tab)
+set -g window-status-current-format "#I: #W"
+set -g window-status-current-style "bg=#f37259,fg=#f5f5f5"  # Orange background, off-white text
+
+# Inactive Window (inactive tabs)
+set -g window-status-format "#I: #W"
+set -g window-status-style "bg=#23272a,fg=#d3d3d3"  # Dark gray background, light gray text
+
+# Activity Indicator (active windows)
+set -g window-status-activity-style "bg=#82cdb9,fg=#000000"  # Light green background, black text
+
+# Pane Borders (subtle)
+set -g pane-border-style bg=#2c2f3d,fg=#505050  # Slightly darker border with dim gray text
+set -g pane-active-border-style bg=#82cdb9,fg=#000000  # Greenish border for active pane
+
+# Window Status (status line)
+set -g status-right "#(date '+%Y-%m-%d %H:%M')"
+set -g status-left "#I:#W"
